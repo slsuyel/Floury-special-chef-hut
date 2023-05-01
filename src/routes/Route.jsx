@@ -5,6 +5,7 @@ import Home from "../components/Home";
 import ErrorPage from "../components/ErrorPage";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import ChefRecipes from "../components/ChefRecipes";
 
 const Route = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const Route = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path : '/recipes/:id',
+        element : <ChefRecipes/>
+      }
     ],
   },
 ]);

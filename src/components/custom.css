@@ -1,12 +1,12 @@
 .cefs-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 15px;
   padding: 15px;
 }
-.cardimg{
-    width: 300px;
-    height: 300px;
+.cardimg {
+    width: 375px;
+    height: 330px;
 }
 @media only screen and (max-width: 570px) {
     .cefs-container {

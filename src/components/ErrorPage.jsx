@@ -6,6 +6,11 @@ function ErrorPage() {
 
   return (
     <div className="error-page  mt-5 text-center">
+      <img
+        src="https://image.pngaaa.com/616/4451616-middle.png"
+        alt=""
+        className="img-fluid img-thumbnail mx-auto w-25"
+      />
       <h1>Oops! 404</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>

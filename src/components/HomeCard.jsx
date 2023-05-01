@@ -1,5 +1,5 @@
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 
 function HomeCard({ chef }) {
   const {
@@ -17,7 +17,7 @@ function HomeCard({ chef }) {
         src={ChefPicture}
       />
       <Card.Body>
-        <Card.Title>{ChefName}</Card.Title>
+        <Card.Title>Name : {ChefName}</Card.Title>
 
         <div className="d-flex justify-content-between">
           <Card.Text>Total Recipes : {NumberOfRecipes}</Card.Text>
@@ -28,9 +28,7 @@ function HomeCard({ chef }) {
           <p> Like : {Likes}</p>
           <p> Rating : 4.5</p>
         </div>
-        <Button variant="primary" className="w-100">
-          View Recipes
-        </Button>
+        <Link to={`/recipes/${ID}`} className="btn btn-info rounded-0 text-decoration-none w-100"> View Recipes</Link>
       </Card.Body>
     </Card>
   );
