@@ -9,6 +9,7 @@ function HomeCard({ chef }) {
     ChefName,
     ChefPicture,
     ID,
+   
   } = chef;
   return (
     <Card>
@@ -26,9 +27,15 @@ function HomeCard({ chef }) {
 
         <div className="d-flex justify-content-between">
           <p> Like : {Likes}</p>
-          <p> Rating : 4.5</p>
+        
         </div>
-        <Link to={`/recipes/${ID}`} className="btn btn-info rounded-0 text-decoration-none w-100"> View Recipes</Link>
+        <Link
+          to={`/recipes/${ID}`}
+          className="btn btn-info rounded-0 text-decoration-none w-100"
+        >
+          {" "}
+          View Recipes
+        </Link>
       </Card.Body>
     </Card>
   );

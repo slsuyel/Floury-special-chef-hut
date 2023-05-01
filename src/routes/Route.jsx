@@ -28,7 +28,8 @@ const Route = createBrowserRouter([
       },
       {
         path : '/recipes/:id',
-        element : <ChefRecipes/>
+        element : <ChefRecipes/>,
+        loader: () => fetch("http://localhost:3000/allData"),
       }
     ],
   },

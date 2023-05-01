@@ -5,13 +5,27 @@
   padding: 15px;
 }
 .cardimg {
-    width: 375px;
-    height: 330px;
+  width: 375px;
+  height: 330px;
 }
+
+.banner-chef {
+  width: 500px;
+ 
+}
+
+.bgg {
+  background-image: url(https://img.freepik.com/premium-photo/kitchen-cooking-background_107389-2336.jpg);
+  height: 100vh;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+}
+
 @media only screen and (max-width: 570px) {
-    .cefs-container {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 15px;
-      }
+  .cefs-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 15px;
+  }
 }

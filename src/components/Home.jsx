@@ -5,7 +5,7 @@ import HomeCard from "./HomeCard";
 import './custom.css'
 const Home = () => {
   const chefs = useLoaderData();
-  console.log(chefs);
+ // console.log(chefs);
 
   return (
     <div>
