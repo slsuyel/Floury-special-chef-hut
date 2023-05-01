@@ -7,7 +7,7 @@ const ChefRecipes = () => {
   const data = useLoaderData();
   const { id } = useParams();
   const selected = data.find((d) => d.ID === id);
- // console.log(selected);
+  // console.log(selected);
   const {
     ChefPicture,
     Recipes,
@@ -19,10 +19,14 @@ const ChefRecipes = () => {
   } = selected;
   return (
     <div className="row p-3">
-      <div className="col-md-6">
-        <img src={ChefPicture} alt="" className="banner-chef" />
+      <div className="col-md-5">
+        <img
+          src={ChefPicture}
+          alt=""
+          className="banner-chef img-thumbnail my-4 p-2 w-100"
+        />
       </div>
-      <div className="card col-md-6 p-3">
+      <div className="card col-md-7">
         <h3>Name: {ChefName}</h3>
         <p>Description : {Description}</p>
         <p>Likes : {Likes}</p>

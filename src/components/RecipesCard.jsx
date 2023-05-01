@@ -2,45 +2,39 @@ import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 
 function RecipesCard({ Recipes }) {
+  console.log(Recipes);
   return (
     <CardGroup>
-      <Card>
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
-      <Card>
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This card has supporting text below as a natural lead-in to
-            additional content.{" "}
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
-      <Card>
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
+      {Recipes.map((Recipe) => (
+        <Card className="mb-3">
+          <Card.Body>
+            <Card.Title>Recipe : {Recipe.RecipeName}</Card.Title>
+            <Card.Text>
+              Ingredients :{" "}
+              {Recipe.Ingredients.slice(0, 3).map((i) => (
+                <>
+                  <li>{i}</li>
+                </>
+              ))}
+            </Card.Text>
+            <Card.Text>
+              {" "}
+              <span className="fw-bold">Cooking Method :</span> <br />
+              {Recipe.CookingMethod.slice(0, 200)} ...
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer className="card-footer d-flex justify-content-around">
+            <small className="text-muted">Rating : {Recipe.Rating} ★ </small>
+            <button>
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/017/178/055/original/love-heart-symbol-on-transparent-background-free-png.png"
+                alt=""
+                width={"20px"}
+              />
+            </button>
+          </Card.Footer>
+        </Card>
+      ))}
     </CardGroup>
   );
 }
