@@ -1,8 +1,17 @@
+import { useState } from "react";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
+import Swal from "sweetalert2";
 
 function RecipesCard({ Recipes }) {
-  console.log(Recipes);
+  // console.log(Recipes);
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
+
+  const handleClick = () => {
+    Swal.fire("", "The recipe is your favorite!", "success");
+    setButtonDisabled(true);
+  };
+
   return (
     <CardGroup>
       {Recipes.map((Recipe) => (
@@ -25,7 +34,7 @@ function RecipesCard({ Recipes }) {
           </Card.Body>
           <Card.Footer className="card-footer d-flex justify-content-around">
             <small className="text-muted">Rating : {Recipe.Rating} ★ </small>
-            <button>
+            <button onClick={handleClick} disabled={isButtonDisabled}>
               <img
                 src="https://static.vecteezy.com/system/resources/previews/017/178/055/original/love-heart-symbol-on-transparent-background-free-png.png"
                 alt=""

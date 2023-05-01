@@ -18,7 +18,7 @@ const ChefRecipes = () => {
     ChefName,
   } = selected;
   return (
-    <div className="row p-3">
+    <div className="p-3 row w-100">
       <div className="col-md-5">
         <img
           src={ChefPicture}
