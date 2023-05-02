@@ -1,5 +1,4 @@
 import React from "react";
-import { Card as div } from "react-bootstrap";
 import { useLoaderData, useParams } from "react-router-dom";
 import "./custom.css";
 import RecipesCard from "./RecipesCard";

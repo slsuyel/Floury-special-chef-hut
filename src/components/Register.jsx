@@ -3,9 +3,12 @@ import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../providers/AuthProviders";
+import "./custom.css";
+import googleLogo from "../assets/google-signin-button.png";
+import gitHubLogo from "../assets/sign-with-git.jpg";
 
 const Register = () => {
-  const { register } = useContext(AuthContext);
+  const { register, googleLogin, githubLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   // console.log(register);
 
@@ -25,19 +28,43 @@ const Register = () => {
       });
       return;
     }
-    register(email, password,photoUrl,name)
+    register(email, password, photoUrl, name)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
         form.reset();
-      
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         //  console.log(errorMessage);
         setError(errorMessage);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
+  const handleGitHubLogin = () => {
+    githubLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
       });
   };
 
@@ -108,13 +135,22 @@ const Register = () => {
           Already have an account?<Link to={"/login"}> Sign in here? </Link>
         </p>
 
-        <Button
-          variant=""
-          type="submit"
-          className="border btn btn-outline-success py-2 rounded-5 w-100"
-        >
-          Continue With Google
-        </Button>
+        <div className="d-flex flex-column w-100">
+          <img
+            onClick={handleGoogleLogin}
+            src={googleLogo}
+            alt=""
+            draggable={false}
+            className="mx-auto sign-in-icon"
+          />
+          <img
+            onClick={handleGitHubLogin}
+            src={gitHubLogo}
+            alt=""
+            draggable={false}
+            className="mx-auto sign-in-icon"
+          />
+        </div>
       </div>
     </div>
   );

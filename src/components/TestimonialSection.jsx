@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
+import { Container } from "react-bootstrap";
 
 const TestimonialSection = () => {
-    return (
-        <div>
-            <h2>testimonial is here</h2>
-        </div>
-    );
+  return (
+    <Container>
+      <div>
+        <h2>testimonial is here</h2>
+      </div>
+    </Container>
+  );
 };
 
 export default TestimonialSection;
