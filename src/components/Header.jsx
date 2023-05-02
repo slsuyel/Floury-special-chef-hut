@@ -4,12 +4,14 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../assets/floury-colored-logo.png";
-
 import { Link } from "react-router-dom";
-
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProviders";
 function Header() {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" className="container " expand="lg">
       <Container fluid>
         <Navbar.Brand as={Link} to="/" className="navbar-brand w-50">
           <img
