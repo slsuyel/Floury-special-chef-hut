@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../providers/AuthProviders";
 
 const Register = () => {
+  const { register } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  // console.log(register);
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError("");
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -15,11 +20,23 @@ const Register = () => {
       Swal.fire({
         icon: "error",
         text: "must be 6 characters, at least one letter and one number",
-    
       });
       return;
     }
-    console.log(name, email, password);
+    // console.log(name, email, password);
+    register(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        //  console.log(errorMessage);
+        setError(errorMessage);
+      });
   };
 
   return (
@@ -67,7 +84,9 @@ const Register = () => {
               className="border-0 border-bottom form-control pb-2 rounded-0"
             />
           </Form.Group>
-
+          <span className="text-danger">
+            <small>{error}</small>
+          </span>
           <Button variant="primary" type="submit" className="w-100">
             Sign up
           </Button>
