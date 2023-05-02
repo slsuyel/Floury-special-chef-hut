@@ -5,11 +5,17 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../assets/floury-colored-logo.png";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProviders";
+import profile from "../assets/profile.png";
+import "./custom.css";
+
 function Header() {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const { user, photo, logOut } = useContext(AuthContext);
+  // console.log(user);
+  const logoutBtn = () => {
+    logOut();
+  };
   return (
     <Navbar bg="light" className="container " expand="lg">
       <Container fluid>
@@ -32,9 +38,24 @@ function Header() {
               Blog
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/login ">
-              Login
-            </Nav.Link>
+            {user ? (
+              <>
+                <Nav.Link as={Link} to="/login">
+                  {user.email}
+                </Nav.Link>
+                <img className="me-2 profile-dp" src={profile} alt="" />
+                <p
+                  onClick={logoutBtn}
+                  className="btn btn-info fw-semibold mb-0 mx-1"
+                >
+                  LogOut
+                </p>
+              </>
+            ) : (
+              <Nav.Link as={Link} to="/login">
+                Login
+              </Nav.Link>
+            )}
           </Nav>
           <Form className="d-flex">
             <Form.Control

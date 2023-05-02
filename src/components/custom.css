@@ -11,9 +11,11 @@
 
 .banner-chef {
   width: 500px;
- 
 }
-
+img.profile-dp {
+  width: 40px;
+  height: 40px;
+}
 .bgg {
   background-image: url(https://img.freepik.com/premium-photo/kitchen-cooking-background_107389-2336.jpg);
   height: 100vh;

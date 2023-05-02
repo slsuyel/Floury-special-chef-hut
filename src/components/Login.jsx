@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProviders";
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle login logic here
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    login(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        form.reset();
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
   };
 
   return (
@@ -25,6 +43,7 @@ const Login = () => {
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
+              name="email"
               required
               placeholder="Enter email"
               className="border-0 border-bottom form-control pb-2 rounded-0"
@@ -35,6 +54,7 @@ const Login = () => {
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
+              name="password"
               required
               placeholder="Password"
               className="border-0 border-bottom form-control pb-2 rounded-0"
@@ -44,12 +64,14 @@ const Login = () => {
             <Form.Check type="switch" id="custom-switch" label="Remember me" />
             <Link>Forgot password?</Link>
           </div>
+          <span className="text-danger">
+            <small>{error}</small>
+          </span>
           <Button variant="primary" type="submit" className="w-100">
             Login
           </Button>
         </Form>
         <p className="my-2">
-          {" "}
           Don’t have an account yet? <Link to={"/register"}>Sign up</Link>{" "}
         </p>
 

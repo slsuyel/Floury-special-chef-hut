@@ -8,10 +8,12 @@ const Register = () => {
   const { register } = useContext(AuthContext);
   const [error, setError] = useState("");
   // console.log(register);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
     const form = e.target;
+    const photoUrl = form.photoUrl.value;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
@@ -23,13 +25,13 @@ const Register = () => {
       });
       return;
     }
-    // console.log(name, email, password);
-    register(email, password)
+    register(email, password,photoUrl,name)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        // ...
+        form.reset();
+      
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -58,6 +60,17 @@ const Register = () => {
               type="text"
               placeholder="Your Name"
               name="name"
+              required
+              className="border-0 border-bottom form-control pb-2 rounded-0"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPhoto">
+            <Form.Label>Photo URL</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter photo URL"
+              name="photoUrl"
               required
               className="border-0 border-bottom form-control pb-2 rounded-0"
             />
