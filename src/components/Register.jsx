@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../providers/AuthProviders";
 import "./custom.css";
-import googleLogo from "../assets/google-signin-button.png";
-import gitHubLogo from "../assets/sign-with-git.jpg";
+import GoogleGitHubLogin from "./GoogleGitHubLogin";
 
 const Register = () => {
   const { register, googleLogin, githubLogin } = useContext(AuthContext);
@@ -40,31 +39,6 @@ const Register = () => {
         const errorMessage = error.message;
         //  console.log(errorMessage);
         setError(errorMessage);
-      });
-  };
-
-  const handleGoogleLogin = () => {
-    googleLogin()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
-  };
-  const handleGitHubLogin = () => {
-    githubLogin()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
       });
   };
 
@@ -135,22 +109,7 @@ const Register = () => {
           Already have an account?<Link to={"/login"}> Sign in here? </Link>
         </p>
 
-        <div className="d-flex flex-column w-100">
-          <img
-            onClick={handleGoogleLogin}
-            src={googleLogo}
-            alt=""
-            draggable={false}
-            className="mx-auto sign-in-icon"
-          />
-          <img
-            onClick={handleGitHubLogin}
-            src={gitHubLogo}
-            alt=""
-            draggable={false}
-            className="mx-auto sign-in-icon"
-          />
-        </div>
+        <GoogleGitHubLogin />
       </div>
     </div>
   );

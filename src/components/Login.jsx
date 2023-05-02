@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
+import GoogleGitHubLogin from "./GoogleGitHubLogin";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
@@ -81,14 +82,7 @@ const Login = () => {
         <p className="my-2">
           Don’t have an account yet? <Link to={"/register"}>Sign up</Link>{" "}
         </p>
-
-        <Button
-          variant=""
-          type="submit"
-          className="border btn btn-outline-success py-2 rounded-5 w-100"
-        >
-          Continue With Google
-        </Button>
+        <GoogleGitHubLogin />
       </div>
     </div>
   );
