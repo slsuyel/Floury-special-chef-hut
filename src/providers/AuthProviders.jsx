@@ -12,19 +12,23 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProviders = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const [photo, setPhoto] = useState("");
   const [name, setName] = useState("");
-  const [user, setUser] = useState(null);
 
   /* --------------- */
 
   const register = (email, password, photoURL, name) => {
+    setLoading(true);
     console.log(email, password, photoURL, name);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   /* ------------------ */
   const login = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -32,6 +36,7 @@ const AuthProviders = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
       console.log("Logged", loggedUser);
       setUser(loggedUser);
+      setLoading(false);
     });
     return () => {
       unsubscribe();
@@ -39,15 +44,17 @@ const AuthProviders = ({ children }) => {
   }, []);
 
   const logOut = () => {
+    setLoading(true);
     return signOut(auth);
-  
   };
 
   const authInfo = {
     user,
     register,
     login,
-    photo,logOut
+    photo,
+    logOut,
+    loading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

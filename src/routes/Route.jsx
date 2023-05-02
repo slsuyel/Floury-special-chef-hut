@@ -6,6 +6,7 @@ import ErrorPage from "../components/ErrorPage";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import ChefRecipes from "../components/ChefRecipes";
+import PrivateRoutes from "./PrivateRoutes";
 
 const Route = createBrowserRouter([
   {
@@ -27,10 +28,14 @@ const Route = createBrowserRouter([
         element: <Register />,
       },
       {
-        path : '/recipes/:id',
-        element : <ChefRecipes/>,
+        path: "/recipes/:id",
+        element: (
+          <PrivateRoutes>
+            <ChefRecipes />
+          </PrivateRoutes>
+        ),
         loader: () => fetch("http://localhost:3000/allData"),
-      }
+      },
     ],
   },
 ]);

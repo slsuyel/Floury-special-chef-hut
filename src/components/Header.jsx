@@ -40,7 +40,7 @@ function Header() {
 
             {user ? (
               <>
-                <Nav.Link as={Link} to="/login">
+                <Nav.Link >
                   {user.email}
                 </Nav.Link>
                 <img className="me-2 profile-dp" src={profile} alt="" />
