@@ -39,7 +39,7 @@ function Header() {
 
             {user ? (
               <>
-                <NavLink >{user.email}</NavLink>
+                <span className="mt-1 mx-2">{user.email}</span>
                 <img className="me-2 profile-dp" src={profile} alt="" />
                 <p
                   onClick={logoutBtn}
