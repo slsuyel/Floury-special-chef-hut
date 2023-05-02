@@ -23,7 +23,10 @@ img.profile-dp {
   width: 100%;
   background-size: cover;
 }
-
+a.active {
+  color: #3906e3;
+  border-bottom: 2px solid #3906e3;
+}
 @media only screen and (max-width: 570px) {
   .cefs-container {
     display: grid;

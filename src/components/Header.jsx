@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../assets/floury-colored-logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProviders";
 import profile from "../assets/profile.png";
@@ -31,18 +31,15 @@ function Header() {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className=" fw-bold">
-            <Nav.Link as={Link} to="/">
+            <NavLink className="fs-5 mx-2 text-decoration-none" to="/">
               Home
-            </Nav.Link>
-            <Nav.Link as={Link} to="/blog">
-              Blog
-            </Nav.Link>
+            </NavLink>
+
+            <NavLink className="fs-5 mx-2 text-decoration-none" to="/blog">Blog</NavLink>
 
             {user ? (
               <>
-                <Nav.Link >
-                  {user.email}
-                </Nav.Link>
+                <NavLink >{user.email}</NavLink>
                 <img className="me-2 profile-dp" src={profile} alt="" />
                 <p
                   onClick={logoutBtn}
@@ -52,9 +49,7 @@ function Header() {
                 </p>
               </>
             ) : (
-              <Nav.Link as={Link} to="/login">
-                Login
-              </Nav.Link>
+              <NavLink className="fs-5 mx-2 text-decoration-none" to="/login">Login</NavLink>
             )}
           </Nav>
           <Form className="d-flex">
