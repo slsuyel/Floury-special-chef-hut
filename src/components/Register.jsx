@@ -5,11 +5,13 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../providers/AuthProviders";
 import "./custom.css";
 import GoogleGitHubLogin from "./GoogleGitHubLogin";
+import { useNavigate } from "react-router-dom/dist";
 
 const Register = () => {
   const { register, googleLogin, githubLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   // console.log(register);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,6 +35,7 @@ const Register = () => {
         const user = userCredential.user;
         console.log(user);
         form.reset();
+        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
