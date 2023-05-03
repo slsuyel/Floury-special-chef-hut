@@ -27,7 +27,6 @@ const githubLogin = () => {
 const AuthProviders = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
   const [photo, setPhoto] = useState("");
   const [name, setName] = useState("");
 
@@ -49,6 +48,10 @@ const AuthProviders = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
       console.log("Logged", loggedUser);
       setUser(loggedUser);
+      if (loggedUser) {
+        setName(loggedUser.displayName);
+        setPhoto(loggedUser.photoURL);
+      }
       setLoading(false);
     });
     return () => {
@@ -70,6 +73,7 @@ const AuthProviders = ({ children }) => {
     loading,
     googleLogin,
     githubLogin,
+    name,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
@@ -77,3 +81,4 @@ const AuthProviders = ({ children }) => {
 };
 
 export default AuthProviders;
+

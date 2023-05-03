@@ -11,7 +11,7 @@ import profile from "../assets/profile.png";
 import "./custom.css";
 
 function Header() {
-  const { user, photo, logOut } = useContext(AuthContext);
+  const { user, photo, logOut, name } = useContext(AuthContext);
   // console.log(user);
   const logoutBtn = () => {
     logOut();
@@ -35,21 +35,32 @@ function Header() {
               Home
             </NavLink>
 
-            <NavLink className="fs-5 mx-2 text-decoration-none" to="/blog">Blog</NavLink>
+            <NavLink className="fs-5 mx-2 text-decoration-none" to="/blog">
+              Blog
+            </NavLink>
 
             {user ? (
               <>
-                <span className="mt-1 mx-2">{user.email}</span>
-                <img className="me-2 profile-dp" src={profile} alt="" />
+                <span className="mt-1 mx-2" style={{ whiteSpace: "nowrap" }}>
+                  {name}
+                </span>
+                <img
+                  className="me-2 profile-dp rounded-circle"
+                  src={photo && photo}
+                  alt=""
+                />
                 <p
                   onClick={logoutBtn}
                   className="btn btn-info fw-semibold mb-0 mx-1"
+                  style={{ whiteSpace: "nowrap" }}
                 >
-                  LogOut
+                  Log Out
                 </p>
               </>
             ) : (
-              <NavLink className="fs-5 mx-2 text-decoration-none" to="/login">Login</NavLink>
+              <NavLink className="fs-5 mx-2 text-decoration-none" to="/login">
+                Login
+              </NavLink>
             )}
           </Nav>
           <Form className="d-flex">
