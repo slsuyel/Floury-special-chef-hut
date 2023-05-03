@@ -9,13 +9,20 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProviders";
 import profile from "../assets/profile.png";
 import "./custom.css";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 function Header() {
   const { user, photo, logOut, name } = useContext(AuthContext);
+  const [isHovered, setIsHovered] = useState(false);
   // console.log(user);
   const logoutBtn = () => {
     logOut();
   };
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      {name ? `User Name: ${name}` : ""}
+    </Tooltip>
+  );
   return (
     <Navbar bg="light" className="container " expand="lg">
       <Container fluid>
@@ -38,17 +45,23 @@ function Header() {
             <NavLink className="fs-5 mx-2 text-decoration-none" to="/blog">
               Blog
             </NavLink>
-            
+
             {user ? (
               <>
-                <span className="mt-1 mx-2" style={{ whiteSpace: "nowrap" }}>
-                  {name}
-                </span>
-                <img
-                  className="me-2 profile-dp rounded-circle"
-                  src={photo && photo}
-                  alt=""
-                />
+                <>
+                  <OverlayTrigger
+                    placement="right"
+                    delay={{ show: 250, hide: 400 }}
+                    overlay={renderTooltip}
+                  >
+                    <img
+                      className="me-2 profile-dp rounded-circle"
+                      src={photo && photo}
+                      onMouseOver={() => <OverlayTrigger />}
+                      alt=""
+                    />
+                  </OverlayTrigger>
+                </>
                 <p
                   onClick={logoutBtn}
                   className="btn btn-info fw-semibold mb-0 mx-1"
