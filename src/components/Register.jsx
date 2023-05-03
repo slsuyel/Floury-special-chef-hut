@@ -8,17 +8,18 @@ import GoogleGitHubLogin from "./GoogleGitHubLogin";
 import { useNavigate } from "react-router-dom/dist";
 
 const Register = () => {
-  const { register, googleLogin, githubLogin } = useContext(AuthContext);
+  const { register, userUpdate, logOut, setLoading } = useContext(AuthContext);
   const [error, setError] = useState("");
   // console.log(register);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
+    setLoading(false);
     e.preventDefault();
     setError("");
     const form = e.target;
-    const photoUrl = form.photoUrl.value;
-    const name = form.name.value;
+    const pic = form.photoUrl.value;
+    const userName = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
 
@@ -29,13 +30,35 @@ const Register = () => {
       });
       return;
     }
-    register(email, password, photoUrl, name)
+    register(email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
         form.reset();
         navigate("/");
+
+        userUpdate(
+          user,
+          {
+            displayName: userName,
+            photoURL: pic,
+          },
+          Swal.fire({
+            icon: "success",
+            title: "You successfully signed up!!",
+            footer:
+              '<a href="http://localhost:5173/login" class="btn btn-primary fw-bold text-break"> Login Here</a>',
+            showConfirmButton: false,
+          })
+        )
+          .then(() => {
+            logOut();
+            navigate("/");
+          })
+          .catch((error) => {
+            setError(error.message);
+          });
       })
       .catch((error) => {
         const errorCode = error.code;

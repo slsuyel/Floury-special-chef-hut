@@ -54,7 +54,7 @@ function Header() {
                     overlay={renderTooltip}
                   >
                     <img
-                      className="me-2 profile-dp rounded-circle"
+                      className="border border-dark me-2 profile-dp rounded-circle"
                       src={photo ? photo : profile}
                       onMouseOver={() => <OverlayTrigger />}
                       alt=""

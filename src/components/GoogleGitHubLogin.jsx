@@ -14,7 +14,7 @@ const GoogleGitHubLogin = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+       // console.log(user);
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -27,13 +27,13 @@ const GoogleGitHubLogin = () => {
     githubLogin()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+      //  console.log(user);
         navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage);
+      //  console.log(errorMessage);
       });
   };
 

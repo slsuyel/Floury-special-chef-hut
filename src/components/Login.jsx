@@ -19,11 +19,11 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+   // console.log(email, password);
     login(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+     //   console.log(user);
         navigate(from, { replace: true });
         form.reset();
       })
