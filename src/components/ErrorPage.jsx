@@ -1,3 +1,4 @@
+import LazyLoad from "react-lazy-load";
 import { Link, useRouteError } from "react-router-dom";
 
 function ErrorPage() {
@@ -6,11 +7,13 @@ function ErrorPage() {
 
   return (
     <div className="error-page  mt-5 text-center">
-      <img
-        src="https://image.pngaaa.com/616/4451616-middle.png"
-        alt=""
-        className="img-fluid img-thumbnail mx-auto w-25"
-      />
+      <LazyLoad>
+        <img
+          src="https://image.pngaaa.com/616/4451616-middle.png"
+          alt=""
+          className="img-fluid img-thumbnail mx-auto w-25"
+        />
+      </LazyLoad>
       <h1>Oops! 404</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>

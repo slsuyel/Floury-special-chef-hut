@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import "./custom.css";
 import RecipesCard from "./RecipesCard";
+import LazyLoad from "react-lazy-load";
 const ChefRecipes = () => {
   const data = useLoaderData();
   const { id } = useParams();
@@ -19,11 +20,13 @@ const ChefRecipes = () => {
   return (
     <div className="p-3 row w-100">
       <div className="col-md-5">
-        <img
-          src={ChefPicture}
-          alt=""
-          className="banner-chef img-thumbnail my-4 p-2 w-100"
-        />
+        <LazyLoad>
+          <img
+            src={ChefPicture}
+            alt=""
+            className="banner-chef img-thumbnail my-4 p-2 w-100"
+          />
+        </LazyLoad>
       </div>
       <div className="card col-md-7">
         <h3>Name: {ChefName}</h3>
