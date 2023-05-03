@@ -10,8 +10,6 @@ const MainLayout = () => {
     <>
       <Header />
       <Outlet></Outlet>
-      <TestimonialSection />
-      <ContactUs/>
       <Footer />
     </>
   );

@@ -3,6 +3,8 @@ import hero from "../assets/hero.jpg";
 import { useLoaderData } from "react-router-dom";
 import HomeCard from "./HomeCard";
 import './custom.css'
+import TestimonialSection from "./TestimonialSection";
+import ContactUs from "./ContactUs";
 const Home = () => {
   const chefs = useLoaderData();
  // console.log(chefs);
@@ -15,6 +17,8 @@ const Home = () => {
           <HomeCard chef={chef} key={chef.ID} />
         ))}
       </div>
+      <TestimonialSection />
+      <ContactUs/>
     </div>
   );
 };

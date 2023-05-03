@@ -38,6 +38,7 @@ function Header() {
             <NavLink className="fs-5 mx-2 text-decoration-none" to="/blog">
               Blog
             </NavLink>
+            
             {user ? (
               <>
                 <span className="mt-1 mx-2" style={{ whiteSpace: "nowrap" }}>
