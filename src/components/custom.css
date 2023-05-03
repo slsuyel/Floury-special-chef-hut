@@ -456,7 +456,12 @@ form.contFrm {
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 570px) {
+  .cefs-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 15px;
+  }
   .hero-text{
     font-size: 20px;
   }
@@ -486,11 +491,3 @@ form.contFrm {
   }
 }
 
-/*  */
-@media only screen and (max-width: 570px) {
-  .cefs-container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 15px;
-  }
-}

@@ -13,14 +13,13 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 function Header() {
   const { user, photo, logOut, name } = useContext(AuthContext);
-  const [isHovered, setIsHovered] = useState(false);
   // console.log(user);
   const logoutBtn = () => {
     logOut();
   };
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
-      {name ? `User Name: ${name}` : ""}
+      {name && `User Name: ${name}`}
     </Tooltip>
   );
   return (
@@ -56,7 +55,7 @@ function Header() {
                   >
                     <img
                       className="me-2 profile-dp rounded-circle"
-                      src={photo && photo}
+                      src={photo ? photo : profile}
                       onMouseOver={() => <OverlayTrigger />}
                       alt=""
                     />
