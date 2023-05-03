@@ -3,7 +3,7 @@
 The project is a web application for a chef built using the React framework for the frontend and an Express server for the backend. The goal of the project is to provide a platform for the chef to showcase their culinary creations and interact with their audience..
 
 ## Live Link
-[Floury- Unique & special chef Hut](http://your-website-url.com)
+[Floury- Unique & special chef Hut](https://assignment-10-c69ca.web.app/)
 
 ## Packages used in the project
 
