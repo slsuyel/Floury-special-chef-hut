@@ -32,13 +32,12 @@ Here's a revised list with short descriptions of the packages used in the projec
 
 Guidelines on how to use the project or any relevant instructions.
 
-## Technologies Used
+## Tech Stack
 
-1.React,
-2.Node js,
-3.Express,
-4.Firebase,
-5.Varcel
+**Client:** React,React Bootstrap
+
+**Server:** Node, Express
+
 
 ## Authentication & Deployment
 
