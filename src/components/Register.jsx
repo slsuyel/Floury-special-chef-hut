@@ -48,7 +48,7 @@ const Register = () => {
             icon: "success",
             title: "You successfully signed up!!",
             footer:
-              '<a href="http://localhost:5173/login" class="btn btn-primary fw-bold text-break"> Login Here</a>',
+              '<a href="https://assignment-10-c69ca.web.app/login" class="btn btn-primary fw-bold text-break"> Login Here</a>',
             showConfirmButton: false,
           })
         )
