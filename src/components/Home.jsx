@@ -13,8 +13,9 @@ const Home = () => {
   return (
     <div>
       <LazyLoad>
-               <img src={hero} alt="" draggable={false} className="img-fluid w-100" />
+        <img src={hero} alt="" draggable={false} className="img-fluid position-relative" />
       </LazyLoad>
+        <span className="hero-text">Welcome to Floury</span>
       <div className="cefs-container">
         {chefs.map((chef) => (
           <HomeCard chef={chef} key={chef.ID} />

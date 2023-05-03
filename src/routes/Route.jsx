@@ -18,7 +18,8 @@ const Route = createBrowserRouter([
       {
         path: "/",
         element: <Home> </Home>,
-        loader: () => fetch("http://localhost:3000/allData"),
+        loader: () =>
+          fetch("https://assignment-server-slsuyel.vercel.app/allData"),
       },
       {
         path: "/login",
@@ -39,7 +40,8 @@ const Route = createBrowserRouter([
             <ChefRecipes />
           </PrivateRoutes>
         ),
-        loader: () => fetch("http://localhost:3000/allData"),
+        loader: () =>
+          fetch("https://assignment-server-slsuyel.vercel.app/allData"),
       },
     ],
   },

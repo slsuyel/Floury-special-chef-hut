@@ -35,6 +35,16 @@ img.sign-in-icon {
 }
 
 /*  */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  font-size: 62px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
 
 .heading {
   text-align: center;
@@ -431,6 +441,9 @@ form.contFrm {
 }
 
 @media (max-width: 767px) {
+  .hero-text{
+    font-size: 35px;
+  }
   .contact-detail span {
     width: auto;
   }
@@ -444,6 +457,9 @@ form.contFrm {
 }
 
 @media (max-width: 575px) {
+  .hero-text{
+    font-size: 20px;
+  }
   .section-title {
     font-size: 26px;
     font-weight: 500;

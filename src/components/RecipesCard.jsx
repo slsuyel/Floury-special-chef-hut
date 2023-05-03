@@ -20,7 +20,7 @@ function RecipesCard({ Recipes }) {
             <Card.Title>Recipe : {Recipe.RecipeName}</Card.Title>
             <Card.Text>
               Ingredients :{" "}
-              {Recipe.Ingredients.slice(0, 3).map((i) => (
+              {Recipe.Ingredients.slice(0, 5).map((i) => (
                 <>
                   <li>{i}</li>
                 </>
