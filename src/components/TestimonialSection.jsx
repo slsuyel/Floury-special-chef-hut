@@ -39,8 +39,8 @@ const TestimonialSection = () => {
   };
 
   return (
-    <Container>
-      <section className="testimonial text-center my-5">
+ 
+      <section className="testimonial text-center my-5 w-100">
         <div className="container">
           <div className="heading white-heading">Testimonial</div>
           <div
@@ -98,7 +98,7 @@ const TestimonialSection = () => {
           </div>
         </div>
       </section>
-    </Container>
+   
   );
 };
 

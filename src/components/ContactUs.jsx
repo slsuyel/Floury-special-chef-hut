@@ -8,7 +8,7 @@ import "./custom.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const ContactUs = () => {
   return (
-    <section className="contact-sec sec-pad my-3 pb-3">
+    <section className="contact-sec sec-pad my-3 pb-3" id="contact">
       <div className="container">
         <div className="row">
           <div className="col-md-6">
@@ -16,24 +16,30 @@ const ContactUs = () => {
               <h1 className="section-title">Contact us</h1>
 
               <ul className="contact-ul">
-                <li>
-                  <FontAwesomeIcon className="border-0 me-2" icon={faMapMarkerAlt} />{" "}
-                  91, Ram Nagar, Ram Mandir, Delhi
+                <li className="list-unstyled">
+                  <FontAwesomeIcon
+                    className="border-0 me-2"
+                    icon={faMapMarkerAlt}
+                  />{" "}
+                  123 Main Street Anytown, USA 12345
                 </li>
 
-                <li>
+                <li className="list-unstyled">
                   <FontAwesomeIcon className="border-0 me-2" icon={faPhone} />
                   <a href="tel:08510004495">
-                    <b>0255000XXXX</b>
+                    <b>(555) 123-4567</b>
                   </a>
                   ,
                   <a href="tel:08510005495">
-                    <b>0251600XXXX</b>
+                    <b>(555) 153-456658</b>
                   </a>
                 </li>
 
-                <li>
-                  <FontAwesomeIcon className="border-0 me-2" icon={faEnvelope} />
+                <li className="list-unstyled">
+                  <FontAwesomeIcon
+                    className="border-0 me-2"
+                    icon={faEnvelope}
+                  />
                   <a href="mailto:pardeepkumar4bjp@gmail.com">
                     <b> demounknown@gmail.com</b>
                   </a>
