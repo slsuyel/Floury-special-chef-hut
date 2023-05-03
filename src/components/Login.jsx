@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <div className="row w-100">
+    <div className="container mx-auto row w-100">
       <div className="col-md-6">
         <img
           src="https://rurutek.com/jio/assets/img/login-animate.gif"
