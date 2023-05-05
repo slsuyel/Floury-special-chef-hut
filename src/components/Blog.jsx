@@ -15,9 +15,13 @@ const Blog = () => {
 
   return (
     <Container>
+    
       <div ref={componentRef} style={{ width: "100%" }}>
         <h2 className="text-center my-2">Blogs</h2>
         <div>
+        <button className="btn btn-danger mb-5 mt-2" onClick={handlePdf}>
+        <FontAwesomeIcon icon={faDownload} /> Download Pdf
+      </button>
           <h4>
             Tell us the differences between uncontrolled and controlled
             components.
@@ -124,9 +128,6 @@ const Blog = () => {
           </p>
         </div>
       </div>
-      <button className="btn btn-danger mb-5 mt-2" onClick={handlePdf}>
-        <FontAwesomeIcon icon={faDownload} /> Download Pdf
-      </button>
     </Container>
   );
 };
