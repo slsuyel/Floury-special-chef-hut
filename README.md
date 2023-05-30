@@ -44,3 +44,4 @@ Guidelines on how to use the project or any relevant instructions.
 Firebase Authentication: Firebase Authentication is used for user authentication in your project. It provides a secure and easy-to-use solution for handling user registration, login, and account management. With Firebase Authentication, you can implement various authentication methods, including email/password, social login, and more.
 
 Vercel: Vercel is used for server deployment in your project. It's a cloud platform that enables seamless deployment and hosting of your server-side code. Vercel supports popular frameworks like Next.js and provides automatic scaling, easy configuration, and built-in features for deploying serverless functions. With Vercel, you can easily deploy your server code and ensure reliable and scalable hosting for your application.
+"# Floury-special-chef-hut" 

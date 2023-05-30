@@ -7,13 +7,13 @@ import "./custom.css";
 import GoogleGitHubLogin from "./GoogleGitHubLogin";
 import { useNavigate } from "react-router-dom/dist";
 
-const Register = () => {
+const SignUp = () => {
   const { register, userUpdate, logOut, setLoading } = useContext(AuthContext);
   const [error, setError] = useState("");
   // console.log(register);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     setLoading(false);
     e.preventDefault();
     setError("");
@@ -141,4 +141,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignUp;
